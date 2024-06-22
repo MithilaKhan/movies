@@ -1,10 +1,20 @@
+import { FireOutlined } from "@ant-design/icons";
 import { Menu } from "antd";
 import { useNavigate } from "react-router-dom";
 const items = [
   {
     key: "/",
 
-    label: <p className="text-white pt-0"> Tending </p>,
+    label: (
+      <p className="text-white pt-0">
+        {" "}
+        <span>
+          {" "}
+          <FireOutlined />
+        </span>{" "}
+        <span>Tending</span>{" "}
+      </p>
+    ),
   },
   {
     key: "/movies",

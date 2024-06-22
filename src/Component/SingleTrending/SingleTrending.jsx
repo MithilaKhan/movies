@@ -1,28 +1,56 @@
-const SingleTrending = ({ trending }) => {
-  console.log(trending);
+import { useState } from "react";
+import DetailsModal from "../Modal/DetailsModal";
+
+const SingleTrending = ({
+  image,
+  name,
+  originalName,
+  mediaType,
+  firstDate,
+  relaseDate,
+  description,
+  id,
+}) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+
   return (
     <div>
-      <div className="max-w-sm  overflow-hidden shadow-lg bg-gray-400 hover:bg-slate-50 text-white hover:text-black rounded-lg">
+      <div
+        onClick={showModal}
+        className="max-w-sm  overflow-hidden shadow-lg bg-gray-400 hover:bg-slate-50 text-white hover:text-black rounded-lg"
+      >
         <img
           className="w-full p-4 rounded-lg"
           src={
-            trending.backdrop_path
-              ? `https://image.tmdb.org/t/p/w300/${trending.backdrop_path}`
-              : " undifined"
+            image ? `https://image.tmdb.org/t/p/w300/${image}` : " undifined"
           }
           alt="Sunset in the mountains"
         />
         <div className="px-6 py-4">
-          <div className="font-bold text-xl mb-2">
-            {trending?.name || trending?.original_title}
-          </div>
+          <div className="font-bold text-xl mb-2">{name || originalName}</div>
           <div className="flex gap-3 justify-between text-xl">
-            <p>{trending?.media_type}</p>
-            <p>{trending?.first_air_date || trending?.release_date} </p>
+            <p>{mediaType}</p>
+            <p>{firstDate || relaseDate} </p>
           </div>
         </div>
-        <div className="px-6 pt-4 pb-2"></div>
       </div>
+
+      <DetailsModal
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
+        image={image}
+        description={description}
+        name={name}
+        originalName={originalName}
+        relaseDate={relaseDate}
+        firstDate={firstDate}
+        id={id}
+        mediaType={mediaType}
+      />
     </div>
   );
 };

@@ -4,7 +4,7 @@ import SimpleBottomNavigation from "./Component/BottomManu";
 import Trending from "./Pages/Trending/Trending";
 import Movies from "./Pages/Movies/Movies";
 import Series from "./Pages/Series/Series";
-import Search from "./Pages/Search/Search";
+import Search from "./Pages/Search/SearchPage";
 import "@fontsource/montserrat";
 function App() {
   return (
